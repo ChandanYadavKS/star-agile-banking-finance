@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: banking and finance
+  name: banking
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: banking and finance
+      app: banking
   template:
     metadata:
       labels:
-        app: banking and finance
+        app: banking
     spec:
       containers:
-      - name: banking and finance
+      - name: banking
         image: chandanyadavks/banking:latest
         ports:
         - containerPort: 8081
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: banking and finance
+  name: banking
 spec:
   type: NodePort
   selector:
-    app: banking and finance  # <-- must match Deployment label
+    app: banking  # <-- must match Deployment label
   ports:
   - port: 8081
     targetPort: 8081
